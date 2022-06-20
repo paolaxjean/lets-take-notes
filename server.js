@@ -1,9 +1,6 @@
 const express = require('express');
 const path = require('path');
-const fs = require('fs');
 const app = express();
-const util = require('util');
-const { application } = require('express');
 
 const PORT = process.env.PORT || 3001;
 
@@ -27,5 +24,5 @@ res.sendFile(path.join(__dirname, 'public/index.html'))
 );
 
 app.listen(PORT, () =>
-console.log('App listening at http://localhost:${PORT}')
+console.log('App listening at http://localhost:3001')
 );
