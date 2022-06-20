@@ -35,7 +35,7 @@ notes.delete('/:id', (req, res) => {
 });
 
 notes.post('/', (req, res) => {
-    console.log(req.body)
+
     const {title, text} = req.body;
     if(req.body) {
         const newNote = {
@@ -44,7 +44,13 @@ notes.post('/', (req, res) => {
             id : uuidv4(),
         };
         readAndAppend(newNote, './db/db.json');
-        res.json('note added succesfully');
+
+        const response = {
+            status: 'Note added succesfully',
+            body: newNote,
+        };
+
+        res.json(response);
     } else {
         res.error('error adding note');
     }
